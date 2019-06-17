@@ -22,3 +22,34 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## userテーブル
+|Column|Type|Options|
+|-----|----|-------|
+|name|string|null: false|
+|email|string|null: false, unique: true|
+|encrypted_password|string|null: false, unique: true|
+
+### Association
+- has_many :reviews
+
+## reviewテーブル
+|Column|Type|Options|
+|-----|----|-------|
+|review|text|
+|image|text|
+|mountain_id|integer|null: false, foreign_key:true|
+
+### Association
+- belongs_to :mountain
+- belongs_to :user
+
+## mountainテーブル
+|Column|Type|Options|
+|-----|----|-------|
+|name|string|
+|image_url|text|
+|detail|text|
+
+### Association
+- has_many :reviews
